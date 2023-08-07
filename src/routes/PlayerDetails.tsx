@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useMatchesQuery } from "~/features/matches/GetMatches.generated";
 import MatchCard from "~/components/MatchCard";
-import { usePlayersQuery } from "~/features/players/GetPlayers.generated";
+import { usePlayersQuery } from "~/features/players/queryPlayers.generated";
 
 export default function Player() {
   const { playerId } = useParams();

@@ -1,4 +1,4 @@
-import type { PlayersQuery } from "~/features/players/GetPlayers.generated";
+import type { PlayersQuery } from "~/features/players/queryPlayers.generated";
 import type { MatchesQuery } from "~/features/matches/GetMatches.generated";
 
 import { formatDuration, getDiffTime, parseDate } from "~/utils/dateTime";

@@ -17,7 +17,7 @@ export default function MatchCard({ match }: MatchCardProps) {
       <table>
         <tbody>
           <tr>
-            <td>stard:</td>
+            <td>start:</td>
             <td>{startTime.toLocaleString()}</td>
           </tr>
           <tr>
