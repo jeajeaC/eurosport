@@ -9,7 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "codegen": "graphql-codegen --config codegen.yml",
-    "test": "vitest"
+    "test:unit": "vitest run",
+    "test:integration": "cypress run",
+    "test": "yarn test:unit && yarn test:integration"
   },
   "dependencies": {
     "@apollo/client": "^3.7.17",
