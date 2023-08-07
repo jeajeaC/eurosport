@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import { useMatchesQuery } from "~/features/matches/GetMatches.generated";
 import MatchCard from "~/components/MatchCard";
+import { useMatchesQuery } from "~/features/matches/queryMatches.generated";
 import { usePlayersQuery } from "~/features/players/queryPlayers.generated";
 
 export default function Player() {
@@ -9,6 +9,9 @@ export default function Player() {
   const matchesQuery = useMatchesQuery();
 
   const player = players.data?.players.find((player) => playerId === player.id);
+  if (matchesQuery.isLoading) {
+    return <div>Loading...</div>;
+  }
   if (
     typeof matchesQuery.data === "undefined" ||
     typeof matchesQuery.data?.matches === "undefined"

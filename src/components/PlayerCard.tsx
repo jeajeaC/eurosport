@@ -1,5 +1,5 @@
 import type { PlayersQuery } from "~/features/players/queryPlayers.generated";
-import type { MatchesQuery } from "~/features/matches/GetMatches.generated";
+import type { MatchesQuery } from "~/features/matches/queryMatches.generated";
 
 import { formatDuration, getDiffTime, parseDate } from "~/utils/dateTime";
 import { Link } from "react-router-dom";
