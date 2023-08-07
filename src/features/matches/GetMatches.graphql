@@ -1,0 +1,15 @@
+query Matches {
+  matches {
+    id
+    startTime
+    endTime
+    players {
+      id
+      firstname
+      lastname
+    }
+    winner {
+      id
+    }
+  }
+}
