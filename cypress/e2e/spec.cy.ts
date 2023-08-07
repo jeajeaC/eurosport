@@ -6,6 +6,6 @@ describe("template spec", () => {
     cy.get("button#player-1").click();
     cy.url().should("include", "player-1");
     cy.contains("Go back").click();
-    cy.url().should("equal", "http://localhost:5173/");
+    cy.url().should("equal", "http://localhost:4173/");
   });
 });
