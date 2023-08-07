@@ -11,4 +11,9 @@
       text-align: start;
     }
   }
+
+  @media (prefers-color-scheme: light) {
+    background-color: #ddd;
+    border: 1px solid #fff;
+  }
 }

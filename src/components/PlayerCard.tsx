@@ -63,7 +63,7 @@ export default function PlayerCard({ player, matches }: PlayerCardProps) {
           </tbody>
         </table>
         <Link to={`/${player.id}`}>
-          <button>Detail of won games</button>
+          <button id={player.id}>Detail of won games</button>
         </Link>
       </div>
     </div>

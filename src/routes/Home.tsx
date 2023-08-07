@@ -1,11 +1,31 @@
 import PlayerCard from "~/components/PlayerCard";
-import { MatchesQuery } from "~/features/matches/GetMatches.generated";
-import { PlayersQuery } from "~/features/players/GetPlayers.generated";
-type HomeProps = {
-  players: PlayersQuery["players"];
-  matches: MatchesQuery["matches"];
-};
-export default function Home({ players, matches }: HomeProps) {
+import { usePlayersQuery } from "~/features/players/GetPlayers.generated";
+import { useMatchesQuery } from "~/features/matches/GetMatches.generated";
+
+export default function Home() {
+  const playersQuery = usePlayersQuery();
+  const matchesQuery = useMatchesQuery();
+
+  if (playersQuery.isLoading || matchesQuery.isLoading) {
+    return <div>loading...</div>;
+  }
+
+  if (playersQuery.isError || matchesQuery.isError) {
+    return <div>Oups! An error occured...</div>;
+  }
+
+  if (
+    typeof playersQuery.data === "undefined" ||
+    typeof playersQuery.data?.players === "undefined" ||
+    typeof matchesQuery.data === "undefined" ||
+    typeof matchesQuery.data?.matches === "undefined"
+  ) {
+    return <div>Oups! An error occured...</div>;
+  }
+
+  const players = playersQuery.data.players;
+  const matches = matchesQuery.data.matches;
+
   return (
     <div className="list">
       {players.map((player) => {
