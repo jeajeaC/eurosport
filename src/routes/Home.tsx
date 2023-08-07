@@ -1,6 +1,6 @@
 import PlayerCard from "~/components/PlayerCard";
-import { usePlayersQuery } from "~/features/players/queryPlayers.generated";
-import { useMatchesQuery } from "~/features/matches/queryMatches.generated";
+import { usePlayersQuery } from "~/app/services/players/queryPlayers.generated";
+import { useMatchesQuery } from "~/app/services/matches/queryMatches.generated";
 
 export default function Home() {
   const playersQuery = usePlayersQuery();

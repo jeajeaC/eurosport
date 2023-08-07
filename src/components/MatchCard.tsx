@@ -1,4 +1,4 @@
-import { MatchesQuery } from "~/features/matches/queryMatches.generated";
+import { MatchesQuery } from "~/app/services/matches/queryMatches.generated";
 import { parseDate } from "~/utils/dateTime";
 type MatchCardProps = {
   match: MatchesQuery["matches"][number];

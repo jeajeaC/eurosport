@@ -9,7 +9,7 @@
  * for this file to be re-created
  */
 
-import * as Types from '../../app/services/types.generated';
+import * as Types from '../types.generated';
 
 import { api } from '~/app/services/baseApi';
 export type MatchesQueryVariables = Types.Exact<{ [key: string]: never; }>;

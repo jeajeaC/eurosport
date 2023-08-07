@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { renderHook } from "@testing-library/react-hooks";
-import { useMatchesQuery } from "~/features/matches/queryMatches.generated";
+import { usePlayersQuery } from "./queryPlayers.generated";
 import { api } from "~/app/services/baseApi";
 import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
 
@@ -9,8 +9,8 @@ const wrapper = ({ children }: { children: ReactNode }) => {
 };
 
 describe("LoginForm", () => {
-  it("get the list of matches", async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useMatchesQuery(), {
+  it("get the list of players", async () => {
+    const { result, waitForNextUpdate } = renderHook(() => usePlayersQuery(), {
       wrapper,
     });
 
@@ -22,7 +22,7 @@ describe("LoginForm", () => {
 
     const nextResponse = result.current;
     expect(nextResponse.data).not.toBeUndefined();
-    expect(nextResponse.data?.matches[0].id).toEqual("match-1");
+    expect(nextResponse.data?.players[0].id).toEqual("player-1");
     expect(nextResponse.isLoading).toBe(false);
     expect(nextResponse.isSuccess).toBe(true);
   });
