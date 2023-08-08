@@ -5,7 +5,8 @@ import { api } from "./app/services/baseApi";
 import { BrowserRouter } from "react-router-dom";
 
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
-import "./sass/styles.scss";
+// import "./sass/styles.scss";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

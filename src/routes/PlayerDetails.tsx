@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import MatchCard from "~/components/MatchCard";
+import Button from "~/components/Button";
 import { useMatchesQuery } from "~/app/services/matches/queryMatches.generated";
 import { usePlayersQuery } from "~/app/services/players/queryPlayers.generated";
 
@@ -28,10 +29,13 @@ export default function Player() {
     <>
       <p>
         This is a recap of each of {player.firstname} {player.lastname}&apos;s
-        winning games. <Link to={`/`}>Go back</Link>
+        winning games.{" "}
+        <Link to={`/`}>
+          <Button id="go-back-button">Go back</Button>
+        </Link>
       </p>
 
-      <div className="list">
+      <div className="flex gap-4 flex-wrap justify-center">
         {wonMatches.map((match) => {
           return <MatchCard key={match.id} match={match} />;
         })}

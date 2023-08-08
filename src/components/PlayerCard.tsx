@@ -3,6 +3,9 @@ import { PlayersQuery } from "~/app/services/players/queryPlayers.generated";
 
 import { formatDuration, getDiffTime, parseDate } from "~/utils/dateTime";
 import { Link } from "react-router-dom";
+import Table from "~/components/Table";
+import Button from "~/components/Button";
+import Card from "~/components/Card";
 
 type PlayerCardProps = {
   player: PlayersQuery["players"][number];
@@ -25,47 +28,27 @@ export default function PlayerCard({ player, matches }: PlayerCardProps) {
     return acc;
   }, 0);
 
+  const content = {
+    age: `${player.stats.age}`,
+    height: `${player.stats.height / 100}m`,
+    weight: `${player.stats.weight / 1000}kg`,
+    points: `${player.stats.points}`,
+    wins: `${wins}`,
+    loses: `${matches.length - wins}`,
+    "total time played": formatDuration(totalTimePlayed),
+  };
+
   return (
-    <div className="card">
-      <img alt="" src={player.picture.url} />
-      <h3>{`${player.firstname} ${player.lastname}`}</h3>
+    <Card>
+      <img className="mx-auto" alt="" src={player.picture.url} />
+      <h3 className="font-bold">{`${player.firstname} ${player.lastname}`}</h3>
       <div>
-        <table>
-          <tbody>
-            <tr>
-              <td>age :</td>
-              <td>{player.stats.age}</td>
-            </tr>
-            <tr>
-              <td>height</td>
-              <td>{player.stats.height / 100} m</td>
-            </tr>
-            <tr>
-              <td>weight</td>
-              <td>{player.stats.weight / 1000} kg</td>
-            </tr>
-            <tr>
-              <td>points :</td>
-              <td>{player.stats.points}</td>
-            </tr>
-            <tr>
-              <td>points :</td>
-              <td>{player.stats.rank}</td>
-            </tr>
-            <tr>
-              <td>wins :</td>
-              <td>{wins}</td>
-            </tr>
-            <tr>
-              <td>total time played :</td>
-              <td>{formatDuration(totalTimePlayed)}</td>
-            </tr>
-          </tbody>
-        </table>
+        <Table content={content} tableKey={player.id} />
+
         <Link to={`/${player.id}`}>
-          <button id={player.id}>Detail of won games</button>
+          <Button id={player.id}>Detail of won games</Button>
         </Link>
       </div>
-    </div>
+    </Card>
   );
 }

@@ -27,7 +27,7 @@ export default function Home() {
   const matches = matchesQuery.data.matches;
 
   return (
-    <div className="list">
+    <div className="flex gap-4 flex-wrap justify-center">
       {players.map((player) => {
         return <PlayerCard key={player.id} player={player} matches={matches} />;
       })}
